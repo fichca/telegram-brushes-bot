@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="botService.002.insert-into-text_messages-table" author="liatkouski">
+        <sql splitStatements="true" stripComments="true">
+            insert into bot.text_messages(id, text)
+            values (1, 'Текст MAIN screen'),
+                   (2, 'Текст BRUSHES screen'),
+                   (3, 'Текст PAYMENT screen'),
+                   (4, 'Текст PAYMENT_EN_INFO screen'),
+
+                   (5, 'Акварель Текст BRUSHES screen'),
+                   (6, 'Гуашь Текст BRUSHES screen'),
+                   (7, 'Маркеры Текст BRUSHES screen'),
+
+                   (8, 'Нет Текст PAYMENT screen'),
+
+                   (9, 'Английский Текст PAYMENT_EN_INFO screen'),
+
+                   (10, 'Лицензии MAIN screen'),
+                   (11, 'Как установить MAIN screen'),
+
+                   (12, 'Текст /start screen'),
+
+                   (13, '');
+        </sql>
+
+    </changeSet>
+
+</databaseChangeLog>

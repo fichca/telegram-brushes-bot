@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="botService.003.insert-into-button_messages-table" author="liatkouski">
+        <sql splitStatements="true" stripComments="true">
+            insert into bot.button_messages(text, screen, screen_rout, position, line, text_message_id)
+            values ('Кисти для Procreate', 'MAIN', 'BRUSHES', 1, 1, 2),
+                   ('Как купить', 'MAIN', 'PAYMENT', 2, 1, 3),
+                   ('Лицензии', 'MAIN', 'MAIN', 3, 2, 10),
+                   ('Как установить', 'MAIN', 'MAIN', 4, 2, 11),
+
+
+                   ('Акварель', 'BRUSHES', 'BRUSHES', 1, 1, 5),
+                   ('Гуашь', 'BRUSHES', 'BRUSHES', 2, 2, 6),
+                   ('Маркеры', 'BRUSHES', 'BRUSHES', 3, 3, 7),
+                   ('В главное меню', 'BRUSHES', 'MAIN', 4, 4, 1),
+
+                   ('Да', 'PAYMENT', 'PAYMENT_EN_INFO', 1, 1, 4),
+                   ('Нет', 'PAYMENT', 'PAYMENT', 2, 1, 8),
+                   ('В главное меню', 'PAYMENT', 'MAIN', 3, 2, 1),
+
+                   ('А что, если я не знаю английский?', 'PAYMENT_EN_INFO', 'PAYMENT_EN_INFO', 1, 1, 9),
+                   ('В главное меню', 'PAYMENT_EN_INFO', 'MAIN', 2, 2, 1),
+
+                   ('BLANK', 'BLANK', 'MAIN', 1, 1, 13);
+        </sql>
+
+    </changeSet>
+
+</databaseChangeLog>

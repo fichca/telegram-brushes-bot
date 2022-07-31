@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="botService.001.init-tables" author="liatkouski">
+        <createTable tableName="button_messages" schemaName="bot">
+            <column name="text" type="varchar(200)">
+                <constraints primaryKey="true" primaryKeyName="pk_button_message"/>
+            </column>
+            <column name="screen" type="varchar(30)">
+                <constraints primaryKey="true" primaryKeyName="pk_button_message"/>
+            </column>
+            <column name="screen_rout" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="position" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="line" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="text_message_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="text_messages" schemaName="bot">
+            <column name="id" type="int">
+                <constraints primaryKey="true" primaryKeyName="pk_text_message"/>
+            </column>
+            <column name="text" type="varchar(500)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="commands" schemaName="bot">
+            <column name="text" type="varchar(200)">
+                <constraints primaryKey="true" primaryKeyName="pk_command"/>
+            </column>
+            <column name="screen_rout" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="text_message_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseColumnNames="text_message_id"
+                baseTableName="button_messages"
+                constraintName="fk_button_messages_text_message_id"
+                baseTableSchemaName="bot"
+                referencedColumnNames="id"
+                referencedTableName="text_messages"
+                referencedTableSchemaName="bot"
+                validate="true"/>
+
+        <addForeignKeyConstraint
+                baseColumnNames="text_message_id"
+                baseTableName="commands"
+                constraintName="fk_commands_text_message_id"
+                baseTableSchemaName="bot"
+                referencedColumnNames="id"
+                referencedTableName="text_messages"
+                referencedTableSchemaName="bot"
+                validate="true"/>
+
+    </changeSet>
+
+</databaseChangeLog>
